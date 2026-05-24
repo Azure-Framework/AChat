@@ -13,7 +13,41 @@
 ![NUI](https://img.shields.io/badge/NUI-HTML%2FCSS%2FJS-orange)
 ![Frameworks](https://img.shields.io/badge/Frameworks-QBX%20%7C%20QB%20%7C%20ESX%20%7C%20NDCore-success)
 
-AChat is a modern FiveM NUI chat replacement built for roleplay servers. It includes local chat, OOC, `/me`, `/do`, advertisements, reports, staff moderation, chat styles, GIF support, command guide support, and automatic framework detection.
+
+AChat is a modern FiveM NUI chat replacement built for roleplay servers. It includes local chat, OOC, `/me`, `/do`, advertisements, reports, staff moderation, chat styles, GIF support, command guide support, input blocking while typing, and automatic framework detection.
+
+## Important: Disable Other Chat Resources
+
+AChat is a full replacement for the default FiveM chat. Do not run the default `chat` resource or any other custom chat resource at the same time.
+
+Running multiple chat resources can cause duplicate messages, broken suggestions, focus issues, keybind conflicts, commands firing twice, or the wrong UI opening.
+
+In `server.cfg`, remove or comment out other chat resources:
+
+```cfg
+# Do not run these with AChat
+# ensure chat
+# ensure qb-chat
+# ensure okokChat
+# ensure cc-chat
+# ensure mChat
+# ensure rpchat
+# ensure any-other-chat-resource
+```
+
+You can also add stop lines before starting AChat as a safety fallback:
+
+```cfg
+stop chat
+stop qb-chat
+stop okokChat
+stop cc-chat
+stop mChat
+stop rpchat
+ensure AChat
+```
+
+The best setup is to completely remove the old chat `ensure` lines and only start one chat resource: `AChat`.
 
 ## Supported Frameworks
 
