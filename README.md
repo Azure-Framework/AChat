@@ -1,18 +1,9 @@
 # AChat
-<img width="589" height="543" alt="image" src="https://github.com/user-attachments/assets/6cb11efb-fd7f-4b48-ab9a-6a27274fe791" />
-<img width="600" height="907" alt="image" src="https://github.com/user-attachments/assets/3b7c711c-5a31-41d1-a8bf-bc58216e0285" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/db7fcdee-d543-43c0-bf9e-cb464019cbf3" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9b87645c-9db2-4816-b60a-159d6e5728b4" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/6314dce5-9844-4981-96a7-545b40629300" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/bc0c6777-f7bc-4298-9c80-2f31f8e73859" />
-<img width="597" height="228" alt="image" src="https://github.com/user-attachments/assets/a5f84755-8a3c-4602-8494-2539032b139e" />
-
 
 ![FiveM](https://img.shields.io/badge/FiveM-Chat%20Resource-blue)
 ![Lua](https://img.shields.io/badge/Lua-5.4-blueviolet)
 ![NUI](https://img.shields.io/badge/NUI-HTML%2FCSS%2FJS-orange)
 ![Frameworks](https://img.shields.io/badge/Frameworks-QBX%20%7C%20QB%20%7C%20ESX%20%7C%20NDCore-success)
-
 
 AChat is a modern FiveM NUI chat replacement built for roleplay servers. It includes local chat, OOC, `/me`, `/do`, advertisements, reports, staff moderation, chat styles, GIF support, command guide support, input blocking while typing, and automatic framework detection.
 
@@ -119,12 +110,14 @@ standalone
 AChat
 ```
 
-4. Start your framework before AChat.
-5. Add the correct start order to `server.cfg`.
+4. Stop/remove the default FiveM `chat` resource and any other chat resources.
+5. Start your framework before AChat.
+6. Add the correct start order to `server.cfg`.
 
 ### Qbox / QBX
 
 ```cfg
+stop chat
 ensure qbx_core
 ensure AChat
 ```
@@ -132,6 +125,7 @@ ensure AChat
 ### QB-Core
 
 ```cfg
+stop chat
 ensure qb-core
 ensure AChat
 ```
@@ -139,6 +133,7 @@ ensure AChat
 ### ESX
 
 ```cfg
+stop chat
 ensure es_extended
 ensure AChat
 ```
@@ -146,6 +141,7 @@ ensure AChat
 ### NDCore
 
 ```cfg
+stop chat
 ensure ND_Core
 ensure AChat
 ```
@@ -153,6 +149,7 @@ ensure AChat
 ### Standalone
 
 ```cfg
+stop chat
 ensure AChat
 ```
 
@@ -160,6 +157,7 @@ ensure AChat
 
 ```cfg
 ensure ox_lib
+stop chat
 ensure qbx_core
 ensure AChat
 ```
@@ -237,17 +235,17 @@ AChat supports ACE-based moderation permissions.
 Recommended example:
 
 ```cfg
-add_ace group.admin orpchat.mod.admin allow
-add_ace group.admin orpchat.mod allow
-add_ace group.mod orpchat.mod allow
+add_ace group.admin achat.mod.admin allow
+add_ace group.admin achat.mod allow
+add_ace group.mod achat.mod allow
 ```
 
 Optional chat style ACE examples:
 
 ```cfg
-add_ace group.admin orpchat.role.staff allow
-add_ace group.admin orpchat.role.admin allow
-add_ace group.admin orpchat.style.rgb allow
+add_ace group.admin achat.role.staff allow
+add_ace group.admin achat.role.admin allow
+add_ace group.admin achat.style.rgb allow
 ```
 
 The ACE permission names can be edited in `config.lua`.
@@ -327,14 +325,14 @@ Config.InputBlock = {
     enforceFocusEveryFrame = true,
     blockOxInventory = true,
     exposeStateBag = true,
-    stateBagName = 'AChatInputOpen'
+    stateBagName = 'achatInputOpen'
 }
 ```
 
 When enabled, AChat also exposes a local state bag value that other resources can check:
 
 ```lua
-LocalPlayer.state.AChatInputOpen
+LocalPlayer.state.achatInputOpen
 ```
 
 ## GIF Provider
@@ -378,6 +376,24 @@ AChat/
 ```
 
 ## Troubleshooting
+
+### Chat messages are duplicated
+
+You are running more than one chat resource. Stop the default `chat` resource and remove every other custom chat resource from `server.cfg`.
+
+```cfg
+stop chat
+stop qb-chat
+stop okokChat
+stop cc-chat
+stop mChat
+stop rpchat
+restart AChat
+```
+
+### The wrong chat UI opens
+
+Another chat resource is still running. Only one chat resource should be active. Remove other chat `ensure` lines and restart the server.
 
 ### Chat shows the FiveM name instead of character name
 
