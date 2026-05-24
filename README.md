@@ -1,32 +1,29 @@
+<div align="center">
+
 # AChat
 
-![FiveM](https://img.shields.io/badge/FiveM-Chat%20Resource-blue)
-![Lua](https://img.shields.io/badge/Lua-5.4-blueviolet)
-![NUI](https://img.shields.io/badge/NUI-HTML%2FCSS%2FJS-orange)
-![Frameworks](https://img.shields.io/badge/Frameworks-QBX%20%7C%20QB%20%7C%20ESX%20%7C%20NDCore-success)
+### Modern multi-framework FiveM NUI chat replacement
 
-AChat is a modern FiveM NUI chat replacement built for roleplay servers. It includes local chat, OOC, `/me`, `/do`, advertisements, reports, staff moderation, chat styles, GIF support, command guide support, input blocking while typing, and automatic framework detection.
+![FiveM](https://img.shields.io/badge/FiveM-Chat%20Resource-blue?style=for-the-badge)
+![Lua](https://img.shields.io/badge/Lua-5.4-blueviolet?style=for-the-badge)
+![NUI](https://img.shields.io/badge/NUI-HTML%2FCSS%2FJS-orange?style=for-the-badge)
+![Frameworks](https://img.shields.io/badge/QBX%20%7C%20QB%20%7C%20ESX%20%7C%20NDCore-supported-success?style=for-the-badge)
 
-## Important: Disable Other Chat Resources
+AChat is a clean, modern FiveM chat system built for roleplay servers.
+It replaces the default FiveM chat with a polished NUI, multi-framework character support, moderation tools, social feeds, ads, GIFs, and typing input protection.
 
-AChat is a full replacement for the default FiveM chat. Do not run the default `chat` resource or any other custom chat resource at the same time.
+</div>
 
-Running multiple chat resources can cause duplicate messages, broken suggestions, focus issues, keybind conflicts, commands firing twice, or the wrong UI opening.
+---
 
-In `server.cfg`, remove or comment out other chat resources:
+## Stop Other Chat Resources First
 
-```cfg
-# Do not run these with AChat
-# ensure chat
-# ensure qb-chat
-# ensure okokChat
-# ensure cc-chat
-# ensure mChat
-# ensure rpchat
-# ensure any-other-chat-resource
-```
+> [!IMPORTANT]
+> AChat is a full chat replacement. You should not run the default FiveM `chat` resource or any other custom chat at the same time.
 
-You can also add stop lines before starting AChat as a safety fallback:
+Running multiple chat resources can cause duplicate messages, broken suggestions, focus issues, keybind conflicts, commands firing twice, wrong UI focus, or the wrong chat opening.
+
+Use **one chat resource only**.
 
 ```cfg
 stop chat
@@ -38,19 +35,70 @@ stop rpchat
 ensure AChat
 ```
 
-The best setup is to completely remove the old chat `ensure` lines and only start one chat resource: `AChat`.
+The best setup is to remove old chat `ensure` lines entirely and only start `AChat`.
+
+---
+
+## Preview
+
+<details open>
+<summary><b>Show screenshots</b></summary>
+
+<br>
+
+<div align="center">
+
+<table>
+<tr>
+<td align="center" width="50%">
+<img src="https://github.com/user-attachments/assets/6cb11efb-fd7f-4b48-ab9a-6a27274fe791" width="100%" alt="AChat preview 1">
+</td>
+<td align="center" width="50%">
+<img src="https://github.com/user-attachments/assets/3b7c711c-5a31-41d1-a8bf-bc58216e0285" width="100%" alt="AChat preview 2">
+</td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<img src="https://github.com/user-attachments/assets/db7fcdee-d543-43c0-bf9e-cb464019cbf3" width="100%" alt="AChat preview 3">
+</td>
+<td align="center" width="50%">
+<img src="https://github.com/user-attachments/assets/9b87645c-9db2-4816-b60a-159d6e5728b4" width="100%" alt="AChat preview 4">
+</td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<img src="https://github.com/user-attachments/assets/6314dce5-9844-4981-96a7-545b40629300" width="100%" alt="AChat preview 5">
+</td>
+<td align="center" width="50%">
+<img src="https://github.com/user-attachments/assets/bc0c6777-f7bc-4298-9c80-2f31f8e73859" width="100%" alt="AChat preview 6">
+</td>
+</tr>
+<tr>
+<td align="center" colspan="2">
+<img src="https://github.com/user-attachments/assets/a5f84755-8a3c-4602-8494-2539032b139e" width="70%" alt="AChat preview 7">
+</td>
+</tr>
+</table>
+
+</div>
+
+</details>
+
+---
 
 ## Supported Frameworks
 
-AChat can automatically detect and run with:
+AChat automatically detects your framework on startup.
 
-- Qbox / QBX: `qbx_core`
-- QB-Core: `qb-core`
-- ESX: `es_extended`
-- NDCore: `ND_Core`
-- Standalone fallback
+| Framework | Resource Name | Status |
+|---|---:|:---:|
+| Qbox / QBX | `qbx_core` | Supported |
+| QB-Core | `qb-core` | Supported |
+| ESX | `es_extended` | Supported |
+| NDCore | `ND_Core` | Supported |
+| Standalone | none | Supported |
 
-The default detection order is controlled in `config.lua`:
+Detection order is controlled in `config.lua`:
 
 ```lua
 Config.Framework = {
@@ -59,9 +107,8 @@ Config.Framework = {
 }
 ```
 
-You can force a framework by changing `Config.Framework.name`.
-
-Accepted values:
+<details>
+<summary><b>Manual framework values</b></summary>
 
 ```txt
 auto
@@ -78,51 +125,45 @@ ndcore
 standalone
 ```
 
-<img width="589" height="543" alt="image" src="https://github.com/user-attachments/assets/6cb11efb-fd7f-4b48-ab9a-6a27274fe791" />
-<img width="600" height="907" alt="image" src="https://github.com/user-attachments/assets/3b7c711c-5a31-41d1-a8bf-bc58216e0285" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/db7fcdee-d543-43c0-bf9e-cb464019cbf3" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9b87645c-9db2-4816-b60a-159d6e5728b4" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/6314dce5-9844-4981-96a7-545b40629300" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/bc0c6777-f7bc-4298-9c80-2f31f8e73859" />
-<img width="597" height="228" alt="image" src="https://github.com/user-attachments/assets/a5f84755-8a3c-4602-8494-2539032b139e" />
+</details>
 
-
+---
 
 ## Features
 
-- Multi-framework auto-detection
-- Character name support across QBX, QB-Core, ESX, and NDCore
-- Job label, duty status, and job icon support
-- Local proximity chat
-- Global OOC chat
-- `/me` and `/do` roleplay commands
-- Server advertisement board
-- Custom ad profiles with name, banner, background, accent color, and style options
-- Chat style system with ACE and Discord role support
-- Staff report center
-- In-city X-style social feed
-- In-city Facebook-style social feed
-- GIF search support through Giphy or Tenor
-- Emoji support
-- Searchable `/help` command guide
-- Staff moderation commands
-- Input lock while typing so inventory, radio, phone, and other keybinds do not open
-- Smoke / black transparent NUI theme
-- No hard `qb-core` dependency
+<div align="center">
+
+| Core Chat | Roleplay Tools | Staff Tools |
+|---|---|---|
+| Multi-framework detection | Local proximity chat | Staff report center |
+| Character names | OOC chat | Staff moderation commands |
+| Job labels and duty status | `/me` and `/do` | Slowmode and freeze chat |
+| Input lock while typing | Advertisements | Warning, mute, timeout tools |
+| Smoke / black transparent UI | X-style social feed | Word filter controls |
+| No hard `qb-core` dependency | Facebook-style social feed | GIF blocking support |
+
+</div>
+
+Additional support includes chat styles, ACE permissions, Discord role integration, Giphy/Tenor GIFs, emoji support, command guide support, and configurable job icons.
+
+---
 
 ## Installation
 
-1. Download or clone this resource.
-2. Place the folder in your server resources directory.
-3. Make sure the folder is named:
+1. Download or clone the resource.
+2. Place it in your server resources folder.
+3. Make sure the folder is named exactly:
 
 ```txt
 AChat
 ```
 
-4. Stop/remove the default FiveM `chat` resource and any other chat resources.
+4. Stop/remove default FiveM `chat` and every other custom chat resource.
 5. Start your framework before AChat.
-6. Add the correct start order to `server.cfg`.
+6. Add AChat to `server.cfg`.
+
+<details open>
+<summary><b>Start order examples</b></summary>
 
 ### Qbox / QBX
 
@@ -163,7 +204,9 @@ stop chat
 ensure AChat
 ```
 
-## Recommended Start Order
+</details>
+
+Recommended order when using utility libraries:
 
 ```cfg
 ensure ox_lib
@@ -172,19 +215,24 @@ ensure qbx_core
 ensure AChat
 ```
 
-Replace `qbx_core` with your actual framework resource if you are not using Qbox.
+Replace `qbx_core` with your framework resource if you are not using Qbox.
+
+---
 
 ## Qbox / QBX Notes
 
-Qbox uses the real resource name `qbx_core`. Do not start or depend on `qbx-core` as a resource name.
+> [!NOTE]
+> Qbox uses the real resource name `qbx_core`. Do not use `qbx-core` as the actual resource folder/resource name.
 
 AChat uses the QBX server export path and client player-data cache fallback so chat names resolve from character data instead of falling back to the FiveM player name.
 
 If you use Qbox, make sure `qb-core` is not forced as a dependency in any edited version of this resource.
 
+---
+
 ## Configuration
 
-Main configuration files:
+Main files:
 
 ```txt
 config.lua
@@ -192,9 +240,10 @@ server_config.lua
 state.json
 ```
 
-### `config.lua`
+<details open>
+<summary><b>config.lua</b></summary>
 
-Controls:
+Controls client/shared settings:
 
 - Framework detection
 - Theme colors
@@ -210,7 +259,10 @@ Controls:
 - Chat styles
 - GIF provider settings
 
-### `server_config.lua`
+</details>
+
+<details>
+<summary><b>server_config.lua</b></summary>
 
 Controls server-only integrations:
 
@@ -232,17 +284,25 @@ ServerConfig.Discord = {
 }
 ```
 
-Never commit a real Discord bot token to GitHub.
+> [!WARNING]
+> Never commit a real Discord bot token to GitHub.
 
-### `state.json`
+</details>
 
-Stores runtime data for chat state. Keep the file present, but do not use it to store private information.
+<details>
+<summary><b>state.json</b></summary>
 
-## ACE Permissions
+Stores runtime chat data.
+
+Keep this file present, but do not store private information inside it.
+
+</details>
+
+---
+
+## Permissions
 
 AChat supports ACE-based moderation permissions.
-
-Recommended example:
 
 ```cfg
 add_ace group.admin achat.mod.admin allow
@@ -258,76 +318,81 @@ add_ace group.admin achat.role.admin allow
 add_ace group.admin achat.style.rgb allow
 ```
 
-The ACE permission names can be edited in `config.lua`.
+The ACE permission names can be changed in `config.lua`.
 
-## Player Commands
+---
 
-```txt
-/ooc <message>
-/l <message>
-/me <message>
-/do <message>
-/ad <message>
-/ads
-/adname <name>
-/adbanner <url>
-/adbg <url>
-/adcolor <hex>
-/adstyle <style>
-/chatstyle
-/help
-/report <message>
-/reports
-/x
-/fb
-/clearchat
-```
+## Commands
 
-## Staff Commands
+<details open>
+<summary><b>Player commands</b></summary>
 
-```txt
-/announce <message>
-/purge
-/slowmode <seconds>
-/freezechat
-/unfreezechat
-/warn <id> <reason>
-/timeout <id> <minutes> <reason>
-/mute <id> <reason>
-/unmute <id>
-/shadowmute <id> <reason>
-/filterword add <word>
-/filterword remove <word>
-/blocklastgif
-/countdown <seconds> <message>
-```
+| Command | Description |
+|---|---|
+| `/ooc <message>` | Send global OOC message |
+| `/l <message>` | Send local message |
+| `/me <message>` | Roleplay action |
+| `/do <message>` | Roleplay scene/description |
+| `/ad <message>` | Post advertisement |
+| `/ads` | Open advertisement board |
+| `/adname <name>` | Set advertisement name |
+| `/adbanner <url>` | Set advertisement banner |
+| `/adbg <url>` | Set advertisement background |
+| `/adcolor <hex>` | Set advertisement color |
+| `/adstyle <style>` | Set advertisement style |
+| `/chatstyle` | Open chat style selector |
+| `/help` | Open command/help guide |
+| `/report <message>` | Submit staff report |
+| `/reports` | Open report center if permitted |
+| `/x` | Open X-style social feed |
+| `/fb` | Open Facebook-style feed |
+| `/clearchat` | Clear local chat UI |
 
-## Chat Keybinds
+</details>
 
-Default open key:
+<details>
+<summary><b>Staff commands</b></summary>
 
-```txt
-T
-```
+| Command | Description |
+|---|---|
+| `/announce <message>` | Send staff announcement |
+| `/purge` | Clear chat for everyone |
+| `/slowmode <seconds>` | Set slowmode |
+| `/freezechat` | Freeze chat |
+| `/unfreezechat` | Unfreeze chat |
+| `/warn <id> <reason>` | Warn player |
+| `/timeout <id> <minutes> <reason>` | Timeout player |
+| `/mute <id> <reason>` | Mute player |
+| `/unmute <id>` | Unmute player |
+| `/shadowmute <id> <reason>` | Shadow mute player |
+| `/filterword add <word>` | Add filtered word |
+| `/filterword remove <word>` | Remove filtered word |
+| `/blocklastgif` | Block the last GIF |
+| `/countdown <seconds> <message>` | Start countdown announcement |
 
-Default visibility cycle key:
+</details>
 
-```txt
-SEMICOLON
-```
+---
 
-These can be changed in `config.lua`:
+## Keybinds
+
+| Action | Default |
+|---|---:|
+| Open chat | `T` |
+| Cycle visibility | `SEMICOLON` |
+
+Change these in `config.lua`:
 
 ```lua
 Config.Chat.openKeyDefault = 't'
 Config.Visibility.cycleKeyDefault = 'SEMICOLON'
 ```
 
+---
+
 ## Input Blocking
 
-AChat blocks common gameplay controls while the chat input is focused. This prevents other resources such as inventory, phone, radio, or interaction menus from opening while the player is typing.
-
-Config section:
+AChat blocks common gameplay controls while the chat input is focused. This prevents inventory, phone, radio, interaction menus, and other keybinds from opening while the player is typing.
 
 ```lua
 Config.InputBlock = {
@@ -339,17 +404,17 @@ Config.InputBlock = {
 }
 ```
 
-When enabled, AChat also exposes a local state bag value that other resources can check:
+When enabled, other resources can check:
 
 ```lua
 LocalPlayer.state.achatInputOpen
 ```
 
+---
+
 ## GIF Provider
 
 AChat supports Giphy and Tenor.
-
-Config section:
 
 ```lua
 Config.Integrations = {
@@ -359,9 +424,14 @@ Config.Integrations = {
 }
 ```
 
-For public GitHub releases, replace any production API keys with your own release-safe key or leave the provider disabled until configured.
+For public GitHub releases, replace production API keys with your own safe key or leave the provider disabled until configured.
+
+---
 
 ## Folder Structure
+
+<details open>
+<summary><b>View resource structure</b></summary>
 
 ```txt
 AChat/
@@ -385,11 +455,16 @@ AChat/
 └── state.json
 ```
 
+</details>
+
+---
+
 ## Troubleshooting
 
-### Chat messages are duplicated
+<details open>
+<summary><b>Chat messages are duplicated</b></summary>
 
-You are running more than one chat resource. Stop the default `chat` resource and remove every other custom chat resource from `server.cfg`.
+You are running more than one chat resource. Stop the default `chat` resource and every other custom chat resource.
 
 ```cfg
 stop chat
@@ -401,11 +476,19 @@ stop rpchat
 restart AChat
 ```
 
-### The wrong chat UI opens
+</details>
 
-Another chat resource is still running. Only one chat resource should be active. Remove other chat `ensure` lines and restart the server.
+<details>
+<summary><b>The wrong chat UI opens</b></summary>
 
-### Chat shows the FiveM name instead of character name
+Another chat resource is still running. Only one chat resource should be active.
+
+Remove other chat `ensure` lines from `server.cfg`, restart the server, then start only AChat.
+
+</details>
+
+<details>
+<summary><b>Chat shows the FiveM name instead of character name</b></summary>
 
 Make sure your framework starts before AChat.
 
@@ -421,11 +504,19 @@ Then restart AChat after your character is fully loaded:
 restart AChat
 ```
 
-### Job shows unemployed
+</details>
 
-The player data may not have loaded yet, or the framework was started after AChat. Restart AChat after the framework and character system are loaded.
+<details>
+<summary><b>Job shows unemployed</b></summary>
 
-### Qbox is trying to use QB-Core
+The player data may not have loaded yet, or the framework was started after AChat.
+
+Start your framework first, load into your character, then restart AChat.
+
+</details>
+
+<details>
+<summary><b>Qbox is trying to use QB-Core</b></summary>
 
 Set the framework manually in `config.lua`:
 
@@ -435,7 +526,10 @@ Config.Framework.name = 'qbx_core'
 
 Also confirm `fxmanifest.lua` does not contain a forced `qb-core` dependency.
 
-### Keybinds open while typing
+</details>
+
+<details>
+<summary><b>Keybinds open while typing</b></summary>
 
 Make sure input blocking is enabled:
 
@@ -444,19 +538,33 @@ Config.InputBlock.enabled = true
 Config.InputBlock.enforceFocusEveryFrame = true
 ```
 
-### NUI has a dark overlay or black screen
+</details>
 
-Avoid adding forced page-level `color-scheme: dark;` or heavy drop-shadow effects. AChat is designed to use a transparent smoke theme without forced full-screen dark overlays.
+<details>
+<summary><b>NUI has a dark overlay or black screen</b></summary>
 
-### Discord roles are not working
+Avoid adding forced page-level `color-scheme: dark;` or heavy drop-shadow effects.
 
-Discord role integration is disabled by default. Configure `server_config.lua` with your guild ID and bot token, then enable it:
+AChat is designed to use a transparent smoke theme without forced full-screen dark overlays.
+
+</details>
+
+<details>
+<summary><b>Discord roles are not working</b></summary>
+
+Discord role integration is disabled by default.
+
+Configure `server_config.lua` with your guild ID and bot token, then enable it:
 
 ```lua
 ServerConfig.Discord.enabled = true
 ```
 
-Make sure your bot has access to read guild members and roles.
+Make sure your bot has permission to read guild members and roles.
+
+</details>
+
+---
 
 ## Updating
 
@@ -468,12 +576,18 @@ server_config.lua
 state.json
 ```
 
-Then replace the resource files and merge your config changes manually.
+Then replace the resource files and manually merge your config changes.
+
+---
 
 ## Credits
 
 Created by Azure.
 
+---
+
 ## License
 
-Use, edit, and distribute according to your server or project license terms. If you release a public fork, keep credits intact and never include private tokens, guild secrets, or server-only configuration data.
+Use, edit, and distribute according to your server or project license terms.
+
+If you release a public fork, keep credits intact and never include private tokens, guild secrets, or server-only configuration data.
