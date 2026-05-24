@@ -1,4 +1,12 @@
 # AChat
+<img width="589" height="543" alt="image" src="https://github.com/user-attachments/assets/6cb11efb-fd7f-4b48-ab9a-6a27274fe791" />
+<img width="600" height="907" alt="image" src="https://github.com/user-attachments/assets/3b7c711c-5a31-41d1-a8bf-bc58216e0285" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/db7fcdee-d543-43c0-bf9e-cb464019cbf3" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9b87645c-9db2-4816-b60a-159d6e5728b4" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/6314dce5-9844-4981-96a7-545b40629300" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/bc0c6777-f7bc-4298-9c80-2f31f8e73859" />
+<img width="597" height="228" alt="image" src="https://github.com/user-attachments/assets/a5f84755-8a3c-4602-8494-2539032b139e" />
+
 
 ![FiveM](https://img.shields.io/badge/FiveM-Chat%20Resource-blue)
 ![Lua](https://img.shields.io/badge/Lua-5.4-blueviolet)
